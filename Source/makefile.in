@@ -14,44 +14,45 @@
 #
 
 
-SHELL = /bin/sh
+SHELL = @SHELL@
 
-srcdir = .
-top_srcdir = ..
-prefix = /usr/local
-exec_prefix = ${prefix}
+srcdir = @srcdir@
+top_srcdir = @top_srcdir@
+VPATH = @srcdir@
+prefix = @prefix@
+exec_prefix = @exec_prefix@
 
-bindir = ${exec_prefix}/bin
-sbindir = ${exec_prefix}/sbin
-libexecdir = ${exec_prefix}/libexec
-datadir = ${prefix}/share
-sysconfdir = ${prefix}/etc
-sharedstatedir = ${prefix}/com
-localstatedir = ${prefix}/var
-libdir = ${exec_prefix}/lib
-infodir = ${prefix}/info
-mandir = ${prefix}/man
-includedir = ${prefix}/include
+bindir = @bindir@
+sbindir = @sbindir@
+libexecdir = @libexecdir@
+datadir = @datadir@
+sysconfdir = @sysconfdir@
+sharedstatedir = @sharedstatedir@
+localstatedir = @localstatedir@
+libdir = @libdir@
+infodir = @infodir@
+mandir = @mandir@
+includedir = @includedir@
 oldincludedir = /usr/include
 
 DESTDIR =
 
-pkgdatadir = $(datadir)/robodoc
-pkglibdir = $(libdir)/robodoc
-pkgincludedir = $(includedir)/robodoc
+pkgdatadir = $(datadir)/@PACKAGE@
+pkglibdir = $(libdir)/@PACKAGE@
+pkgincludedir = $(includedir)/@PACKAGE@
 
 top_builddir = ..
 
-ACLOCAL = aclocal
-AUTOCONF = autoconf
-AUTOMAKE = automake
-AUTOHEADER = autoheader
+ACLOCAL = @ACLOCAL@
+AUTOCONF = @AUTOCONF@
+AUTOMAKE = @AUTOMAKE@
+AUTOHEADER = @AUTOHEADER@
 
-INSTALL = /usr/bin/install -c
-INSTALL_PROGRAM = ${INSTALL} $(AM_INSTALL_PROGRAM_FLAGS)
-INSTALL_DATA = ${INSTALL} -m 644
-INSTALL_SCRIPT = ${INSTALL_PROGRAM}
-transform = s,x,x,
+INSTALL = @INSTALL@
+INSTALL_PROGRAM = @INSTALL_PROGRAM@ $(AM_INSTALL_PROGRAM_FLAGS)
+INSTALL_DATA = @INSTALL_DATA@
+INSTALL_SCRIPT = @INSTALL_SCRIPT@
+transform = @program_transform_name@
 
 NORMAL_INSTALL = :
 PRE_INSTALL = :
@@ -59,10 +60,10 @@ POST_INSTALL = :
 NORMAL_UNINSTALL = :
 PRE_UNINSTALL = :
 POST_UNINSTALL = :
-CC = gcc
-MAKEINFO = makeinfo
-PACKAGE = robodoc
-VERSION = 3.2.4
+CC = @CC@
+MAKEINFO = @MAKEINFO@
+PACKAGE = @PACKAGE@
+VERSION = @VERSION@
 
 bin_PROGRAMS = robodoc
 robodoc_SOURCES = analyser.c analyser.h config.h folds.c folds.h      generator.c generator.h headers.c headers.h items.c items.h      links.c links.h robodoc.c robodoc.h util.c util.h
@@ -113,16 +114,16 @@ CONFIG_CLEAN_FILES =
 PROGRAMS =  $(bin_PROGRAMS)
 
 
-DEFS = -DHAVE_CONFIG_H -I. -I$(srcdir) -I.
-CPPFLAGS = 
-LDFLAGS = 
-LIBS = 
+DEFS = @DEFS@ -I. -I$(srcdir) -I.
+CPPFLAGS = @CPPFLAGS@
+LDFLAGS = @LDFLAGS@
+LIBS = @LIBS@
 robodoc_OBJECTS =  analyser.o folds.o generator.o headers.o items.o \
 links.o robodoc.o util.o
 robodoc_LDADD = $(LDADD)
 robodoc_DEPENDENCIES = 
 robodoc_LDFLAGS = 
-CFLAGS = -g -O2
+CFLAGS = @CFLAGS@
 COMPILE = $(CC) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
 CCLD = $(CC)
 LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(LDFLAGS) -o $@

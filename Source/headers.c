@@ -14,25 +14,25 @@
  */
 
 char           *header_markers[] = {
-    "/****",  /* C, C++ */
-    "//****", /* C++ */
-    "(****",  /* Pascal, Modula-2, B52 */
-    "{****",  /* Pascal */
-    ";****",  /* M68K assembler */
-    "****",   /* M68K assembler */
-    "C     ****",  /* Fortran */
-    "REM ****",  /* BASIC */
-    "%****",    /* LaTeX, TeX, Postscript */
-    "#****",    /* Tcl/Tk */
-    "      ****",  /* COBOL */
-    "--****",   /* Occam */
-    "<!--****",   /* HTML Code */
-    "<!---****",  /* HTML Code,  the three-dashed comment
+    "/**** ",  /* C, C++ */
+    "//**** ", /* C++ */
+    "(****" ,  /* Pascal, Modula-2, B52 */
+    "{**** " ,  /* Pascal */
+    ";**** ",  /* M68K assembler */
+    "**** " ,   /* M68K assembler */
+    "C     **** ",  /* Fortran */
+    "REM **** ",  /* BASIC */
+    "%**** ",    /* LaTeX, TeX, Postscript */
+    "#**** ",    /* Tcl/Tk */
+    "      **** ",  /* COBOL */
+    "--**** ",   /* Occam */
+    "<!--**** ",   /* HTML Code */
+    "<!---**** ",  /* HTML Code,  the three-dashed comment
                    * tells the [server] pre-processor not
                    * to send that comment with the HTML 
                    */
-    "|****", /* GNU Assembler */
-    "!!****", /* FORTAN 90 */
+    "|**** ", /* GNU Assembler */
+    "!!**** ", /* FORTAN 90 */
     NULL
 };
 

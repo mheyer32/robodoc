@@ -14,12 +14,12 @@
  */
 
 char           *header_markers[] = {
-    "/**** ",  /* C, C++ */
-    "//**** ", /* C++ */
+    "/****** ",  /* C, C++ */
+    "//****** ", /* C++ */
     "(****" ,  /* Pascal, Modula-2, B52 */
     "{**** " ,  /* Pascal */
-    ";**** ",  /* M68K assembler */
-    "**** " ,   /* M68K assembler */
+    ";****** ",  /* M68K assembler */
+    "****** " ,   /* M68K assembler */
     "C     **** ",  /* Fortran */
     "REM **** ",  /* BASIC */
     "%**** ",    /* LaTeX, TeX, Postscript */

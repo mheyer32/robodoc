@@ -105,7 +105,8 @@ void RB_Analyse_Defaults_File()
 
             *line_buffer = '\0';
 
-            fgets(line_buffer, MAX_LINE_LEN, defaults_file);
+            if (!fgets(line_buffer, MAX_LINE_LEN, defaults_file))
+                break;
 
             if (*line_buffer != '\n') {
                 int             item_type;

@@ -1,10 +1,11 @@
 dnl Process this file with autoconf to produce a configure script.
 
-AC_INIT(Source/robodoc.h)
+AC_INIT([robodoc], [3.2.4])
+AC_CONFIG_SRCDIR([Source/robodoc.h])
+AC_CONFIG_HEADERS([Source/config.h])
 
-AM_CONFIG_HEADER(Source/config.h)
-
-AM_INIT_AUTOMAKE(robodoc, 3.2.4)
+AM_INIT_AUTOMAKE
+AM_MAINTAINER_MODE([disable])
 
 AC_PROG_MAKE_SET
 
@@ -14,7 +15,8 @@ AC_PROG_CC
 dnl Checks for libraries.
 
 dnl Checks for header files.
-AC_HEADER_STDC
+AC_CHECK_INCLUDES_DEFAULT
+AC_PROG_EGREP
 
 dnl Checks for typedefs, structures, and compiler characteristics.
 AC_C_CONST
@@ -25,5 +27,6 @@ AC_FUNC_STRFTIME
 AC_FUNC_VPRINTF
 AC_CHECK_FUNCS(strstr)
 
-AC_OUTPUT(makefile Docs/makefile Source/makefile)
+AC_CONFIG_FILES([makefile Docs/makefile Source/makefile])
+AC_OUTPUT
 

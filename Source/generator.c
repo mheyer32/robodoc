@@ -1144,7 +1144,7 @@ char* RB_Generate_Item_Body (FILE * dest_doc, char *dest_name,
 {
     char *cur_char, old_char, c;
     int html_incr;
-    char fname[128], foldname[128];
+    char fname[1024 + 32], foldname[128];
     static int in_fold = 0;  /* PetteriK 08.04.2000 */
 
     cur_char = begin_of_item;

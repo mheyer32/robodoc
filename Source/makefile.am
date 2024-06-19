@@ -2,6 +2,9 @@
 #
 #
 
+# Doc rules below use GNU make pattern rules (%.ext).
+AUTOMAKE_OPTIONS = -Wno-portability
+
 bin_PROGRAMS = robodoc
 robodoc_SOURCES = analyser.c analyser.h config.h folds.c folds.h \
      generator.c generator.h headers.c headers.h items.c items.h \
@@ -163,5 +166,4 @@ myclean: docclean
 
 tt:
 	cp robodoc $(HOME)/Test
-
 

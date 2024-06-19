@@ -188,8 +188,7 @@ int RB_Find_Marker(FILE * document)
     found = FALSE;
     while (!feof(document) && !found) {
         *line_buffer = '\0';
-        fgets(line_buffer, MAX_LINE_LEN, document);
-        if (!feof(document)) {
+        if (fgets(line_buffer, MAX_LINE_LEN, document) && !feof(document)) {
             line_number++;
             if (!(course_of_action & DO_ROBO_HEAD)) {
                 for (marker = 0;
@@ -345,7 +344,8 @@ int RB_Find_End_Marker (FILE *document,  struct RB_header* new_header)
 
     while (!feof(document) && !found) {
         cur_line = contents + cur_size;
-        fgets(cur_line, MAX_LINE_LEN, document);
+        if (!fgets(cur_line, MAX_LINE_LEN, document))
+            break;
 	/*        printf("READ  %s", cur_line);
 		  printf("CONT  %s", contents);*/
         ++line_number; /* global linecounter, koessi */

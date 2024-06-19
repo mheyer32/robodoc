@@ -42,8 +42,7 @@ struct RB_link **link_index = NULL;
 void RB_Analyse_Xrefs(FILE * xreffiles_file)
 {
     while (!feof(xreffiles_file)) {
-        fgets(line_buffer, MAX_LINE_LEN, xreffiles_file);
-        if (!feof(xreffiles_file)) {
+        if (fgets(line_buffer, MAX_LINE_LEN, xreffiles_file) && !feof(xreffiles_file)) {
             char           *cur_char;
 
             cur_char = line_buffer;
@@ -60,15 +59,15 @@ void RB_Analyse_Xrefs(FILE * xreffiles_file)
                     int             end_of_xrefs = FALSE;
 
                     while (!feof(xref_file) && !xrefs_found) {
-                        fgets(line_buffer, MAX_LINE_LEN, xref_file);
-                        if (!feof(xref_file) && !strncmp("XREF:",
-                                    line_buffer, 5))
+                        if (fgets(line_buffer, MAX_LINE_LEN, xref_file)
+                                && !feof(xref_file)
+                                && !strncmp("XREF:", line_buffer, 5))
                             xrefs_found = TRUE;
                     }
 
                     while (!feof(xref_file) && !end_of_xrefs) {
-                        fgets(line_buffer, MAX_LINE_LEN, xref_file);
-                        if (!feof(xref_file)) {
+                        if (fgets(line_buffer, MAX_LINE_LEN, xref_file)
+                                && !feof(xref_file)) {
                             cur_char = line_buffer;
                             find_quote;
                             if (*cur_char == '\"')
